@@ -1,0 +1,40 @@
+/**
+ * This is an abstract class that subclasses
+ * Ford Taurus and the Dodge Caravan
+ *
+ * @author Anjali Shanakar
+ * @version 1.0
+ *
+ */
+public abstract class Car {
+    protected String licensePlate;
+    protected double baseDailyRate;
+    protected int passengerCapacity;
+    /**
+     * Constructor for this class
+     * @param String which has the license number of the car
+     *
+     */
+    public Car(String aLicensePlate) {
+        licensePlate = aLicensePlate;
+        baseDailyRate = 30.00;
+    }
+    /**
+     *
+     * Returns the number of passengers that the car can transport
+     *
+     */
+    public abstract int passengerCapacity();
+    /**
+     *
+     * Returns the daily rate of rent for the car
+     *
+     */
+     public abstract double baseDailyRate();
+    /**
+     *
+     * toString of the class
+     *
+     */
+     public abstract String toString();
+}
