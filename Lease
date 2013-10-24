@@ -1,0 +1,52 @@
+/**
+ * This class has the information of the car and
+ * the information of the customer who has rented it
+ *
+ * @author Anjali Shankar
+ * version 1.0
+ */
+public class Lease {
+
+    private Car car;
+    private Customer customer;
+    /**
+     * Constructor for this class
+     *
+     * @param The object car
+     * @param The object customer who has rented the the above mentioned car
+     *
+     */
+    public Lease(Car aCar, Customer aCustomer) {
+        car = aCar;
+        customer = aCustomer;
+    }
+    /**
+     * Returns the object car that has been rented
+     *
+     * @return The rented car and its details
+     *
+     */
+    public Car getCar() {
+        return car;
+    }
+    /**
+     * Calculates the daily rate of renting the car
+     * after deducting the discounts
+     *
+     * @return The double which is the calculated daily rate
+     *
+     */
+    public double dailyRate() {
+        return car.baseDailyRate() * (1.0 - customer.getDiscount());
+    }
+    /**
+     * toString method of Lease
+     *
+     * @return Returns the details of the car and
+     * the name of the customer who has rented it
+     *
+     */
+    public String toString() {
+        return car.toString() + " leased to " + customer;
+    }
+}
