@@ -1,0 +1,67 @@
+/**
+ * This is a class that contains the details of the customer
+ *
+ * @author Anjali Shankar
+ * @version 1.0
+ *
+ */
+
+public class Customer {
+
+    private String name;
+    private double discount;
+
+    /**
+     * Constructor for the class
+     *
+     * @param String which is the name of the customer
+     *
+     */
+    public Customer(String aName) {
+        name = aName;
+        // By default, customers get no discount
+        discount = 0.0;
+    }
+
+    /**
+     * Returns the name of the customer
+     *
+     * @return String which is the name of the customer
+     *
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     *
+     * Returns the discount that the customer will receive
+     *
+     * @return Double which the discount
+     *
+     */
+    public double getDiscount() {
+        return discount;
+    }
+
+    /**
+     *
+     * Sets the discount that the customer will receive
+     *
+     * @param Double which the discount rate
+     *
+     */
+    public void setDiscount(double aDiscount) {
+        discount = aDiscount;
+    }
+
+    /**
+     * Returns the name of the customer
+     *
+     * @return String which is the name of the customer
+     *
+     */
+    public String toString() {
+        return getName();
+    }
+}
