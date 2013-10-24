@@ -1,0 +1,47 @@
+/**
+ * This class has the information of the car Ford Taurus
+ *
+ * @author Anjali Shankar
+ * version 1.0
+ */
+
+public class FordTaurus extends Car {
+    /**
+     * Constructor of this class
+     *
+     * @param String with the license plate number of the car
+     *
+     */
+    public FordTaurus(String aLicensePlate) {
+        super(aLicensePlate);
+        baseDailyRate = 30.00;
+        passengerCapacity = 4;
+    }
+    /**
+     * Returns the daily rate of the car after discounts
+     *
+     * @return Double which is the daily rate of rent
+     *
+      */
+    public double baseDailyRate() {
+        return baseDailyRate;
+    }
+    /**
+     * Returns the maximum number of passengers that the Ford Taurus can hold
+     *
+     * @return Int which is the number of passengers that the car can hold
+     *
+     */
+    public int passengerCapacity() {
+        return passengerCapacity;
+    }
+    /**
+     * toString of the class
+     *
+     * @return String with the license of the Ford Taurus
+     *
+     */
+    public String toString() {
+        return "Ford Taurus with license plate " + licensePlate;
+    }
+}
