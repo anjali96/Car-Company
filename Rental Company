@@ -1,0 +1,115 @@
+/**
+ * This class represents the company that is renting the cars
+ *
+ * @author Anjali Shankar
+ * version 1.0
+ *
+ */
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class RentalCompany {
+    private String name;
+    private List<Car> availableCars;
+    private List<Lease> leases;
+
+    /**
+    * Constructor for the RentalCompany
+     * @param String which is the name of the rental company
+     * @param The arraylist with the rental companies
+     *
+     */
+    public RentalCompany(String aName, Car ... initialInventory) {
+        name = aName;
+        availableCars = new ArrayList<Car>();
+        availableCars.addAll(Arrays.asList(initialInventory));
+        leases = new ArrayList<Lease>();
+    }
+     /**
+     * returns the name of the Rental Company
+     *
+     * @return String which is the name of the rental company
+     *
+     */
+    public String getName() {
+        return name;
+    }
+    /**
+     * Returns the arraylist with the available cars
+     *
+     * @return The arraylist with the list of cars available for rent
+     *
+     */
+    public List<Car> getAvailableCars() {
+        return availableCars;
+    }
+    /**
+     * Returns the arraylist with the
+     * cars that have been leased
+     *
+     * @return Returns the arraylist with then
+     * list of cars that have been leased
+     *
+     */
+    public List<Lease> getLeases() {
+        return leases;
+    }
+    /**
+     *
+     * Checks whether a car is available for rent
+     * or not depending on the number of passengers
+     *
+     * @return Returns true if the car is available
+     * and false if the car is not available
+     *
+     */
+    public boolean hasCarAvailable(int numPassengers) {
+        return availableCars(numPassengers).size() > 0;
+    }
+    /**
+     * Assumes #isCarAvailable returns true, otherwise behaviour is
+     * undefined.
+     */
+    public Car nextAvailableCar(int numPassengers) {
+        return availableCars(numPassengers).get(0);
+    }
+    /**
+     * Checks if the car is big enough to accommodate the number of passengers
+     *
+     * @param The number of passengers
+     *
+     * @return Returns a boolean true if it can accommodate
+     * and false if it can not
+     *
+     */
+    public List<Car> availableCars(int numPassengers) {
+        List<Car> bigEnoughs = new ArrayList<Car>();
+        for (Car car: availableCars) {
+            if (car.passengerCapacity() >= numPassengers) {
+                bigEnoughs.add(car);
+            }
+        }
+        return bigEnoughs;
+    }
+    /**
+     * Leases a car by removing it from the available list and adding
+     * a lease to the lease list.  Assumes car is available.
+     */
+    public Lease lease(Car car, Customer customer) {
+        availableCars.remove(car);
+        Lease lease = new Lease(car, customer);
+        leases.add(lease);
+        return lease;
+    }
+    /**
+     * If the customer wants to return the car
+     * the returned car is removed from the lease list
+     *
+     */
+    public void returnCar(Lease lease) {
+        availableCars.add(lease.getCar());
+        leases.remove(lease);
+    }
+}
